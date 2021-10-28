@@ -2,28 +2,12 @@
   <div class="" style="border: 1px solid powderblue">
     <v-row>
       <v-col>
-        <v-card class="mx-auto" max-width="600" max-height="600">
-          <v-img
-            class="white--text align-end"
-            height="200px"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-          >
-            <v-card-title>Top 10 Australian beaches</v-card-title>
-          </v-img>
-
-          <v-card-subtitle class="pb-0">
-            Number 10
-          </v-card-subtitle>
-
-          <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
-
-            <div>Whitsunday Island, Whitsunday Islands</div>
-          </v-card-text>
-
-          <v-card-actions>
-            
-          </v-card-actions>
+        <v-card class="mx-auto" max-width="730" max-height="600">
+          <iframe
+            src="https://www.google.com/maps/d/u/0/embed?mid=19OQgc1GI7Oq6_fX1H_Dm_0aNrz3jC0BW"
+            width="730"
+            height="500"
+          ></iframe>
         </v-card>
         <br />
         <br />
@@ -45,6 +29,7 @@ export default {
   }),
 };
 </script>
+
 <style scoped>
 .degrade {
   background: radial-gradient(200px top, ellipse, white, #1162ac, black);

@@ -99,7 +99,7 @@
 
                           <v-card-actions>
                             <v-btn color="primary" text>
-                              Share
+                              View
                             </v-btn>
 
                             <v-btn color="orange" text>
