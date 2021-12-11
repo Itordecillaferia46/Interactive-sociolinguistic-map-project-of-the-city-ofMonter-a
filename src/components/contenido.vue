@@ -21,13 +21,26 @@
 </template>
 
 <script>
+// const axios = require('axios');
 export default {
-  name: "App",
+  data(){
+    return{
+      palabras: [],
+    }
+  },
+}
 
-  data: () => ({
-    //
-  }),
-};
+//  async mounted(){
+//     let response = await axios.get("");
+//     this.palabras = response.data;
+//     console.log(response.data)
+//     },
+
+//   methods:{
+//     async eliminar(id){
+//       let response = await axios.delete("" + id)
+//       console.log(response)
+//     },
 </script>
 
 <style scoped>
