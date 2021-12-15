@@ -54,14 +54,15 @@
               <br />
               <v-row>
                 <div class="divbarrios" style="border: 0px solid powderblue ">
-                  <p>Aqui se muestran los barrios</p>
+                 
+                  <p>ccccddd</p>
                 </div>
               </v-row>
               <br />
               <br />
               <v-row>
                 <div class="divjerga" style="border: 0px solid powderblue ">
-                  <p>Aqui se muestran los terminos o jergas seleccionadas</p>
+                  <p>Aqui se muestran lo</p>
                 </div>
               </v-row>
             </v-col>
@@ -99,19 +100,20 @@ export default {
 
   data: () => {
     return {
-      id: null,
-      
+     
     };
   },
-
-
-  methods: {
-    async actualizar() {
-      let response = await axios.get("http://localhost:4000/" + this.id);
-      this.communen = response.data;
-      console.log(response.data);
+   async mounted(){
+    let response = await axios.get("https://backend-proyectomapv1.herokuapp.com/palabra/");
+    this.palabras = response.data;
+    console.log(response.data)
     },
-  },
+    
+methods: {
+
+
+}
+
 };
 </script>
 

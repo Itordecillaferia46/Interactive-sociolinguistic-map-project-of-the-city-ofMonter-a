@@ -66,12 +66,12 @@
                                     <option value="value1"> 1</option>
                                     <option value="value2"> 2</option>
                                     <option value="value3"> 3</option>
-                                    <option value="value3"> 4</option>
-                                    <option value="value3"> 5</option>
-                                    <option value="value3"> 6</option>
-                                    <option value="value3"> 7</option>
-                                    <option value="value3"> 8</option>
-                                    <option value="value3"> 9</option>
+                                    <option value="value4"> 4</option>
+                                    <option value="value5"> 5</option>
+                                    <option value="value6"> 6</option>
+                                    <option value="value7"> 7</option>
+                                    <option value="value8"> 8</option>
+                                    <option value="value9"> 9</option>
                                   </select>
                                 </div>
                               </v-col>
@@ -83,7 +83,7 @@
                               class="divbarrios"
                               style="border: 1px solid powderblue "
                             >
-                              <p>Aqui se muestran los barrios</p>
+                              <p>Barrios</p>
                             </div>
                             <br />
                             <div
@@ -147,7 +147,12 @@ export default {
   }),
 };
 </script>
-<script></script>
+
+
+<script>
+
+
+</script>
 <style>
 .divbarrios {
   border-radius: 1rem;

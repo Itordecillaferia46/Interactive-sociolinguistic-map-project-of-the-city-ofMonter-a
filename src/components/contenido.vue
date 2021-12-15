@@ -22,6 +22,7 @@
 
 <script>
 // const axios = require('axios');
+
 export default {
   data(){
     return{
@@ -41,7 +42,9 @@ export default {
 //       let response = await axios.delete("" + id)
 //       console.log(response)
 //     },
+
 </script>
+
 
 <style scoped>
 .degrade {

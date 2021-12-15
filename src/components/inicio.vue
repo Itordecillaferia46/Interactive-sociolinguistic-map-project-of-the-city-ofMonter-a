@@ -29,21 +29,25 @@
                 <br>
                 <br>
                 <br>
+              <br>
               
+              <div class="text-center">
+                  <router-link :to="{ name: 'contenido' }" class="noneline">
+               <v-btn
+      class="ma-2"
+       rounded
+      outlined
+       width="220"
+      color="primary"
+         dark
+    >
+      Ingresar
+    </v-btn>
+      </router-link>
+       </div>
            
                 
-                <div class="text-center">
-                  <router-link :to="{ name: 'contenido' }">
-                    <v-btn
-                      class="letraB"
-                      width="220"
-                      rounded
-                      color="primary"
-                      dark
-                      ><b>Ingresar</b></v-btn
-                    >
-                  </router-link>
-                </div>
+            
               </v-col>
             </v-row>
           </v-container>
