@@ -5,7 +5,7 @@
         <v-card class="overflow-hidden">
           <v-app-bar
             absolute
-            color="#3881F9"
+            color="#0CEAD9"
             dark
             height="100"
             scroll-target="#scrolling-techniques-2"
@@ -58,21 +58,22 @@
                                   style="border: 1px solid powderblue"
                                   class="div-select"
                                 >
-                                  <select
-                                    name="select"
-                                    class="select-css"
-                                    style="width:60px"
-                                  >
-                                    <option value="value1"> 1</option>
-                                    <option value="value2"> 2</option>
-                                    <option value="value3"> 3</option>
-                                    <option value="value4"> 4</option>
-                                    <option value="value5"> 5</option>
-                                    <option value="value6"> 6</option>
-                                    <option value="value7"> 7</option>
-                                    <option value="value8"> 8</option>
-                                    <option value="value9"> 9</option>
-                                  </select>
+                                  <v-container fluid>
+                                    <v-row align="center">
+                                      
+
+                                      <v-col class="d-flex" cols="12" sm="12">
+                                        <v-select
+                                          :items="items"
+                                          label="Seleccionar Comuna"
+                                          dense
+                                          outlined
+                                          
+                                        ></v-select>
+                                      </v-col>
+
+                                    </v-row>
+                                  </v-container>
                                 </div>
                               </v-col>
                             </v-row>
@@ -143,26 +144,44 @@ export default {
   name: "App",
 
   data: () => ({
-    //
+    items: ["1", "2", "3", "4", "5", "6"],
   }),
+  computed: {
+    likesAllFruit() {
+      return this.selectedCommunen.length === this.comuna.length;
+    },
+    likesSomeFruit() {
+      return this.selectedCommunen.length > 0 && !this.likesAllFruit;
+    },
+    icon() {
+      if (this.likesAllFruit) return "mdi-close-box";
+      if (this.likesSomeFruit) return "mdi-minus-box";
+      return "mdi-checkbox-blank-outline";
+    },
+  },
+
+  methods: {
+    toggle() {
+      this.$nextTick(() => {
+        if (this.likesAllFruit) {
+          this.selectedCommunen = [];
+        } else {
+          this.selectedCommunen = this.comuna.slice();
+        }
+      });
+    },
+  },
 };
 </script>
 
-
-<script>
-
-
-</script>
 <style>
 .divbarrios {
   border-radius: 1rem;
 }
 .colorfondo {
-  background-color: #75bdf9;
+  background-color: #152289;
 }
 .div-select {
-  height: 30px;
-  width: 65px;
   border-radius: 0.5rem;
 }
 .screen {
