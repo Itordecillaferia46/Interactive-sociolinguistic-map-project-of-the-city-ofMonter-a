@@ -3,11 +3,8 @@
     <v-row>
       <v-col>
         <v-card class="mx-auto" max-width="730" max-height="600">
-          <iframe
-            src="https://www.google.com/maps/d/u/0/embed?mid=19OQgc1GI7Oq6_fX1H_Dm_0aNrz3jC0BW"
-            width="730"
-            height="500"
-          ></iframe>
+         
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Z3zNCXWCoFiz-3CXLTI--4yoougXbSqd&ehbc=2E312F" width="730" height="500"></iframe>
         </v-card>
         <br />
         <br />

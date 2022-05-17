@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
 
-import inicio from './components/inicio'
+import inicio1 from './components/inicio1'
 import principal1 from './components/principal1'
 import contenido from './components/contenido'
 import m1 from './components/m1' 
@@ -12,8 +12,8 @@ Vue.use(VueRouter)
 const routes = [
     {
       path: "/",
-      name: "inicio",
-      component: inicio
+      name: "inicio1",
+      component: inicio1
     },
     {
         path: "/principal1",

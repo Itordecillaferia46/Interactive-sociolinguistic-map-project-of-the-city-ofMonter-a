@@ -2,10 +2,10 @@
   <v-app>
     <div class="colorfondo">
       <v-container fluid>
-        <v-card class="overflow-hidden">
+        <v-card class="overflow-hidden" >
           <v-app-bar
             absolute
-            color="#0CEAD9"
+            color="#305DBF"
             dark
             height="100"
             scroll-target="#scrolling-techniques-2"
@@ -13,7 +13,7 @@
             <template v-slot:img="{ props }">
               <v-img
                 v-bind="props"
-                gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+                
               ></v-img>
             </template>
 
@@ -33,6 +33,7 @@
             <v-btn icon>
               <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
+            
           </v-app-bar>
           <v-sheet max-height="700">
             <v-container style="height: 1000px;">
@@ -124,16 +125,7 @@
         </v-card>
         <div class="screen">
           <!-- code -->
-          <div class="innerdiv">
-            <a
-              ><img
-                src="https://i.ibb.co/2ScB3CR/l.png"
-                width="150"
-                height="100"
-                class="d-inline-block align-top"
-                alt=""
-            /></a>
-          </div>
+         
         </div>
       </v-container>
     </div>
@@ -144,7 +136,12 @@ export default {
   name: "App",
 
   data: () => ({
-    items: ["1", "2", "3", "4", "5", "6"],
+    items: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+     menu: [
+        { title: 'Acerca de' },
+        { title: 'Diccionario electrónico' },
+
+      ],
   }),
   computed: {
     likesAllFruit() {
@@ -179,7 +176,7 @@ export default {
   border-radius: 1rem;
 }
 .colorfondo {
-  background-color: #152289;
+  background-color: #D6D6D6;
 }
 .div-select {
   border-radius: 0.5rem;

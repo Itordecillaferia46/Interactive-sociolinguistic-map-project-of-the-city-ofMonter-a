@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="fondo-p" color="ffff">
+    <div class="fondo-p" color="white">
       <div>
         <br />
 
