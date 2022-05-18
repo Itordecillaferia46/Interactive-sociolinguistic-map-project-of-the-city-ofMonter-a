@@ -19,7 +19,7 @@
 
       
       <div class="text-center">
-                  <router-link :to="{ name: 'contenido' }" class="noneline">
+                  <router-link :to="{ name: 'home' }" class="noneline">
                <v-btn
       class="ma-2"
        rounded
@@ -36,19 +36,63 @@
     </v-card-text>
 
     <v-card-actions>
+     <v-avatar>
+      <img
+        src="https://i.ibb.co/0fHsR36/apoyo.png"
+        alt="admin"
+      >
+    </v-avatar>
+    
+ 
       <v-btn
+        color="green"
+        text
+      >
+        Acceder
+      </v-btn>
+       <v-row justify="space-around">
+    <v-col >
+      <v-dialog
+        transition="dialog-bottom-transition"
+        max-width="900"
+      >
+        <template v-slot:activator="{ on, attrs }">
+         
+          <v-btn
+           v-bind="attrs"
+            v-on="on"
         color="orange"
         text
       >
-        Share
+        Explorar
       </v-btn>
+        </template>
+        <template v-slot:default="dialog">
+          <v-card>
+            
+            <v-card-text>
+              <div class="text-h2 pa-12">   <v-btn
+      class="ma-2"
+      outlined
+      color="primary"
+      href="https://diccionario-electronico.herokuapp.com/#/"
+    >
+     Diccionario electrónico del habla popular de los valles de los ríos Sinú y San Jorge
+    </v-btn></div>
+            </v-card-text>
+            <v-card-actions class="justify-end">
+              <v-btn
+                text
+                @click="dialog.value = false"
+              >Cerrar</v-btn>
+            </v-card-actions>
+          </v-card>
+        </template>
+      </v-dialog>
+    </v-col>
+    </v-row>
 
-      <v-btn
-        color="orange"
-        text
-      >
-        Explore
-      </v-btn>
+
     </v-card-actions>
     <center>
     <v-card-text class="blue--text">

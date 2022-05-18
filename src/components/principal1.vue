@@ -101,12 +101,17 @@
 
                           <v-card-actions>
                             <v-btn color="primary" text>
-                              View
+                              Buscar
                             </v-btn>
+                             <v-avatar  size="40">
+      <img
+        src="https://i.ibb.co/qMqTxBs/lupa-1.png"
+        alt="Buscar"
+      >
+    </v-avatar>
+                       
 
-                            <v-btn color="orange" text>
-                              Explore
-                            </v-btn>
+                           
                           </v-card-actions>
                         </v-card>
                       </v-card>

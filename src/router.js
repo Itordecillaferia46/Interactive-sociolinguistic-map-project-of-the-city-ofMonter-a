@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import inicio1 from './components/inicio1'
 import principal1 from './components/principal1'
-import contenido from './components/contenido'
+import home from './components/home'
 import m1 from './components/m1' 
 import creditos from './components/creditos'
     
@@ -22,9 +22,9 @@ const routes = [
 
         children:[
             {
-            path:'/contenido',
-            name:'contenido',
-            component: contenido,
+            path:'/home',
+            name:'home',
+            component: home,
           },
           {
             path:'/m1',
