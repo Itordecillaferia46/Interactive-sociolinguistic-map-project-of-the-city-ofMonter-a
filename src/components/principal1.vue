@@ -2,7 +2,7 @@
   <v-app>
     <div class="colorfondo">
       <v-container fluid>
-        <v-card class="overflow-hidden" >
+        <v-card class="overflow-hidden">
           <v-app-bar
             absolute
             color="#305DBF"
@@ -11,10 +11,7 @@
             scroll-target="#scrolling-techniques-2"
           >
             <template v-slot:img="{ props }">
-              <v-img
-                v-bind="props"
-                
-              ></v-img>
+              <v-img v-bind="props"></v-img>
             </template>
 
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -26,13 +23,10 @@
 
             <v-spacer></v-spacer>
 
-            <v-btn icon>
-              <v-icon>mdi-magnify</v-icon>
-            </v-btn>
-
-            <v-btn icon>
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
+            <router-link :to="{ name: 'creditos' }" class="noneline">
+            <v-icon>{{ icons.mdiAccount }}</v-icon>
+            <div class="mx-2"></div>
+            </router-link>
             
           </v-app-bar>
           <v-sheet max-height="700">
@@ -61,18 +55,14 @@
                                 >
                                   <v-container fluid>
                                     <v-row align="center">
-                                      
-
                                       <v-col class="d-flex" cols="12" sm="12">
                                         <v-select
                                           :items="items"
                                           label="Seleccionar Comuna"
                                           dense
                                           outlined
-                                          
                                         ></v-select>
                                       </v-col>
-
                                     </v-row>
                                   </v-container>
                                 </div>
@@ -99,20 +89,7 @@
                           <br />
                           <br />
 
-                          <v-card-actions>
-                            <v-btn color="primary" text>
-                              Buscar
-                            </v-btn>
-                             <v-avatar  size="40">
-      <img
-        src="https://i.ibb.co/qMqTxBs/lupa-1.png"
-        alt="Buscar"
-      >
-    </v-avatar>
-                       
-
-                           
-                          </v-card-actions>
+                          
                         </v-card>
                       </v-card>
                     </div>
@@ -130,23 +107,22 @@
         </v-card>
         <div class="screen">
           <!-- code -->
-         
         </div>
       </v-container>
     </div>
   </v-app>
 </template>
 <script>
+import { mdiAccount } from "@mdi/js";
 export default {
   name: "App",
 
   data: () => ({
+    icons: {
+      mdiAccount,
+    },
     items: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-     menu: [
-        { title: 'Acerca de' },
-        { title: 'Diccionario electrónico' },
-
-      ],
+    menu: [{ title: "Acerca de" }, { title: "Diccionario electrónico" }],
   }),
   computed: {
     likesAllFruit() {
@@ -181,7 +157,7 @@ export default {
   border-radius: 1rem;
 }
 .colorfondo {
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
 }
 .div-select {
   border-radius: 0.5rem;
