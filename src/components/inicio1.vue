@@ -19,7 +19,7 @@
 
       
       <div class="text-center">
-                  <router-link :to="{ name: 'home' }" class="noneline">
+                  <router-link :to="{ name: 'principal' }" class="noneline">
                <v-btn
       class="ma-2"
        rounded
