@@ -60,7 +60,7 @@
                                   <v-expansion-panels>
                                     <v-expansion-panel>
                                       <v-expansion-panel-header>
-                                        <h2>Comuna:</h2>
+                                        <h2>Comuna</h2>
                                       </v-expansion-panel-header>
                                       <v-expansion-panel-content>
                                         <v-btn
@@ -187,6 +187,7 @@
                   <v-col cols="10">
                     <div style="border: 1px solid powderblue">
                       <br />
+                      //mapa completo
                       <div v-if="com === 1">
                         <v-row justify="center">
                           <v-col>
@@ -211,6 +212,7 @@
                           </v-col>
                         </v-row>
                       </div>
+                     <!--  //comuna1 -->
                       <div v-if="com === 2">
                         <v-row justify="center">
                           <v-col>
@@ -227,18 +229,18 @@
                                 </v-col>
                                 <v-col cols="6" md="4">
                                   <v-card class="pa-2" outlined tile>
-                                    .col-6 .col-md-4
+                                    Mostrar palabras
                                   </v-card>
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
+   <!--                    comuna2 -->
                       <div v-if="com === 3">
                         <v-row justify="center">
-                                                    <v-col>
+                          <v-col>
                             <v-container class="grey lighten-5">
                               <v-row no-gutters>
                                 <v-col cols="12" sm="6" md="8">
@@ -257,13 +259,13 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
+<!--                       comuna3 -->
                       <div v-if="com === 4">
                         <v-row justify="center">
-                                                    <v-col>
+                          <v-col>
                             <v-container class="grey lighten-5">
                               <v-row no-gutters>
                                 <v-col cols="12" sm="6" md="8">
@@ -282,14 +284,12 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
-
+<!--                       comuna4 -->
                       <div v-if="com === 5">
                         <v-row justify="center">
-
                           <v-col>
                             <v-container class="grey lighten-5">
                               <v-row no-gutters>
@@ -309,10 +309,10 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
+<!--                       //comuna5 -->
                       <div v-if="com === 6">
                         <v-row justify="center">
                           <v-col>
@@ -334,11 +334,10 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
-
+<!--                       //comuna6 -->
                       <div v-if="com === 7">
                         <v-row justify="center">
                           <v-col>
@@ -360,10 +359,10 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
+<!--                       //comuna7 -->
                       <div v-if="com === 8">
                         <v-row justify="center">
                           <v-col>
@@ -385,10 +384,10 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
+<!--                       //comuna8 -->
                       <div v-if="com === 9">
                         <v-row justify="center">
                           <v-col>
@@ -410,10 +409,10 @@
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
+ <!--                      //comuna9 -->
                       <div v-if="com === 10">
                         <v-row justify="center">
                           <v-col>
@@ -430,12 +429,14 @@
                                 </v-col>
                                 <v-col cols="6" md="4">
                                   <v-card class="pa-2" outlined tile>
-                                    .col-6 .col-md-4
+                                    <div v-if="result" class="content">
+                                      <p>User ID: {{ result.userId }}</p>
+                                      <p>Title: {{ result.title }}</p>
+                                    </div>
                                   </v-card>
                                 </v-col>
                               </v-row>
                             </v-container>
-                           
                           </v-col>
                         </v-row>
                       </div>
@@ -454,6 +455,7 @@
   </v-app>
 </template>
 <script>
+const axios = require("axios");
 //import { mdiAccount } from "@mdi/js";
 export default {
   name: "App",
@@ -467,6 +469,7 @@ export default {
   }), */
   data() {
     return {
+      result: null,
       dialogol: false,
       dialogo: false,
       dialog: false,
@@ -477,8 +480,21 @@ export default {
       enana: [],
     };
   },
+  async mounted() {
+    let response = await axios.get("https://localhost:4000/palabra/");
+    this.palabras = response.data;
+    console.log(response.data);
+  },
 
   computed: {},
+  //Axios practice
+  created() {
+    /*     axios.get("https://jsonplaceholder.typicode.com/todos/1").then((result) => {
+      console.log(result.data); */
+    axios.get("https://jsonplaceholder.typicode.com/todos/1").then((result) => {
+      this.result = result.data;
+    });
+  },
 
   methods: {},
 };
