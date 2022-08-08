@@ -113,6 +113,7 @@
   </v-app>
 </template>
 <script>
+
 import { mdiAccount } from "@mdi/js";
 export default {
   name: "App",
@@ -125,29 +126,11 @@ export default {
     menu: [{ title: "Acerca de" }, { title: "Diccionario electrónico" }],
   }),
   computed: {
-    likesAllFruit() {
-      return this.selectedCommunen.length === this.comuna.length;
-    },
-    likesSomeFruit() {
-      return this.selectedCommunen.length > 0 && !this.likesAllFruit;
-    },
-    icon() {
-      if (this.likesAllFruit) return "mdi-close-box";
-      if (this.likesSomeFruit) return "mdi-minus-box";
-      return "mdi-checkbox-blank-outline";
-    },
+    
   },
 
   methods: {
-    toggle() {
-      this.$nextTick(() => {
-        if (this.likesAllFruit) {
-          this.selectedCommunen = [];
-        } else {
-          this.selectedCommunen = this.comuna.slice();
-        }
-      });
-    },
+  
   },
 };
 </script>
