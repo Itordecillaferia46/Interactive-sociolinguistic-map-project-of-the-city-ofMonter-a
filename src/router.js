@@ -16,6 +16,11 @@ import comuna8 from './components/comuna8'
 import comuna9 from './components/comuna9'
 import m1 from './components/m1' 
 import creditos from './components/creditos'
+import formulario from './components/crud/formulario'
+import menu from './components/crud/menu'
+import editar from './components/crud/editar'
+import tabla from './components/crud/tabla'
+
     
 Vue.use(VueRouter)
 
@@ -99,7 +104,27 @@ const routes = [
             component: creditos,
           },
         ]
-          },
+    },
+    {
+      path: "/formulario",
+      name: "formulario",
+      component: formulario
+    },
+    {
+      path: "/menu",
+      name: "menu",
+      component: menu
+    },
+    {
+      path: "/editar",
+      name: "editar",
+      component: editar
+    },
+    {
+      path: "/tabla",
+      name: "tabla",
+      component: tabla
+    }
       ];
   
   const router = new VueRouter({
