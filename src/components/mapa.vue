@@ -10,8 +10,8 @@
                             </v-card>
                         </v-col>
                         <v-col cols="6" md="4">
-                            <v-card class="pa-2" outlined tile>
-                                Mostrar palabras
+                            <v-card v-for="(palabra, index) in palabras" :key="index" class="pa-2" outlined tile>
+                                {{palabra.termino}}
                             </v-card>
                         </v-col>
                     </v-row>
@@ -27,11 +27,7 @@ export default {
         url: String,
         width: Number,
         height: Number,
-        comuna: Number,
+        palabras: Array,
     },
-    mounted:{
-        //retrieve and filter 
-    }
-
 }
 </script>

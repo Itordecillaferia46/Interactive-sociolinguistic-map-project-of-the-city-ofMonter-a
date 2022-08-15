@@ -86,6 +86,7 @@
                       :url="this.comunas[com].mapaUrl"
                       :width="this.comunas[com].width"
                       :height="this.comunas[com].height"
+                      :palabras="this.comunas[com].palabras"
                     />
                     </div>
                   </v-col>
@@ -113,30 +114,19 @@ export default {
   },
   data() {
     return {
-      result: null,
-      dialogol: false,
-      dialogo: false,
-      dialog: false,
-      dialo: false,
-
       palabras: [],
-
       com: 0,
-      impro: "yaris",
-      enana: [],
-
-      
       comunas:[
         {"comuna": "Montería", "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1Z3zNCXWCoFiz-3CXLTI--4yoougXbSqd&ehbc=2E312F","width":830, "height":600,}, //general
-        {"comuna": 1, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1sGtUBNn1t56F-_vN1VeBfTLqD4chOREw&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 2, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1yhzIKq2qRtst39cyyjdRf-3K5RulXZr2&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 3, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1kfVWDlnRBb7tg8CBa12o3KPOPUaKt4sG&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 4, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=12-F1xq5M3_vEd1GBFWdiwteEZtiQORlK&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 5, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=13K7BndeZl5plt5Yr_CZ5KZOznVSldQf9&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 6, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1Dfkk95_HPtpsBDOwna606s3clZ_Jnfax&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 7, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1pb6yRMcQ0zbuf_vIqdFejKs4vZ-npMJK&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 8, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1wBKoV-ra23aHoaZ_7u64Md49XNAhcNMg&ehbc=2E312F","width":610, "height":500,},
-        {"comuna": 9, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1S9Rvg4EQQ011fMVDf7Pv7B5j3nMkKgPq&ehbc=2E312F","width":610, "height":500,}
+        {"comuna": 1, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1sGtUBNn1t56F-_vN1VeBfTLqD4chOREw&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 2, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1yhzIKq2qRtst39cyyjdRf-3K5RulXZr2&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 3, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1kfVWDlnRBb7tg8CBa12o3KPOPUaKt4sG&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 4, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=12-F1xq5M3_vEd1GBFWdiwteEZtiQORlK&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 5, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=13K7BndeZl5plt5Yr_CZ5KZOznVSldQf9&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 6, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1Dfkk95_HPtpsBDOwna606s3clZ_Jnfax&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 7, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1pb6yRMcQ0zbuf_vIqdFejKs4vZ-npMJK&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 8, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1wBKoV-ra23aHoaZ_7u64Md49XNAhcNMg&ehbc=2E312F","width":610, "height":500, "palabras":[],},
+        {"comuna": 9, "mapaUrl": "https://www.google.com/maps/d/u/0/embed?mid=1S9Rvg4EQQ011fMVDf7Pv7B5j3nMkKgPq&ehbc=2E312F","width":610, "height":500, "palabras":[],}
       ],
     };
   },
@@ -144,11 +134,23 @@ export default {
     let response = await axios.get("http://localhost:4000/");
     this.palabras = response.data;
     console.log(response.data);
+
+    for (let index = 1; index < this.comunas.length; index++) {
+      for (let i = 0; i < this.palabras.length; i++) {
+        if (this.palabras[i].comuna.length > 1){
+          for (let j = 0; j < this.palabras[i].comuna.length; j++) {
+            if(this.palabras[i].comuna[j] == index){
+              this.comunas[index].palabras.push(this.palabras[i])
+            }
+          }
+        }else{
+            if(this.palabras[i].comuna[0] == index){
+              this.comunas[index].palabras.push(this.palabras[i])
+            }
+        }
+      }
+    }
   },
-
-  computed: {},
-
-  methods: {},
 };
 </script>
 
