@@ -10,7 +10,7 @@
                 v-model="nuevoTermino.termino">
             </v-text-field>
 
-            <v-checkbox v-for="comuna in listaComunas " :key="comuna" :label="`${comuna}`" :value="comuna" v-model="nuevoTermino.comunas">
+            <v-checkbox v-for="comuna in listaComunas " :key="comuna" :label=" 'comuna ' + `${comuna}`" :value="comuna" v-model="nuevoTermino.comuna">
             </v-checkbox>
 
         </v-form>
@@ -36,33 +36,25 @@ const axios = require("axios");
 export default{
     data(){
         return{
+            idPalabra: null,
             ruta: "http://localhost:4000/",
             nuevoTermino: {
                 termino: "",
-                comunas: [],
+                comuna: [],
             },
-            listaComunas: [
-                "comuna 1",
-                "comuna 2", 
-                "comuna 3", 
-                "comuna 4", 
-                "comuna 5", 
-                "comuna 6", 
-                "comuna 7", 
-                "comuna 8", 
-                "comuna 9", 
-                "comuna 10"
-            ]
+
+            listaComunas: [1,2,3,4,5,6,7,8,9]
+
         }
     },
     methods: {
 
         limpiar(){
           this.nuevoTermino.termino = "",
-          this.nuevoTermino.comunas =[]  
+          this.nuevoTermino.comuna =[]  
         },
 
-        guardar(){
+        editar(){
         axios
         .post("http://localhost:4000/new", this.nuevoTermino)
         .then((response) => {
@@ -73,5 +65,9 @@ export default{
             // axios.post(this.ruta, this.nuevoTermino).then(response=>{console.log(response)})
         
     },
+    mounted(){
+
+    },
 }
 </script>
+

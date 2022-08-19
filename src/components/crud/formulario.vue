@@ -59,7 +59,7 @@ export default{
         .then((response) => {
           console.log(response);
         });
-        }
+        },
 
             // axios.post(this.ruta, this.nuevoTermino).then(response=>{console.log(response)})
         
