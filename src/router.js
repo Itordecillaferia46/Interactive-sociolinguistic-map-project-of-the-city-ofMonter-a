@@ -53,7 +53,7 @@ const routes = [
       component: menu
     },
     {
-      path: "/editar",
+      path: "/editar/:id",
       name: "editar",
       component: editar
     },

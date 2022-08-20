@@ -95,11 +95,8 @@
             </v-container>
           </v-sheet>
         </v-card>
-        <div class="screen">
-        </div>
       </v-container>
     </div>
-    {{$data}}
   </v-app>
 </template>
 
