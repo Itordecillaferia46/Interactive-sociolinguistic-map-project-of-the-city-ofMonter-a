@@ -1,9 +1,27 @@
 <template>
+<div>
+  <v-bottom-navigation
+    color="primary"
+    horizontal
+  >
+    <v-btn to="/formulario">
+      <span>Agregar</span>
+        
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
+
+    <v-btn to="/tabla">
+      <span>Administrar</span>
+
+      <v-icon>mdi-lead-pencil</v-icon>
+    </v-btn>
+
+  </v-bottom-navigation>
 <v-container>
-    <v-simple-table>
+    <v-simple-table class="d-flex justify-center">
         <template>
-            <thead>
-                <tr>
+            <thead >
+                <tr >
                     <th>
                         Palabra
                     </th>
@@ -23,7 +41,6 @@
                     <td>{{palabra.termino}}</td>
                     <td>{{palabra.comuna.join(", ")}}</td>
                     <td> <v-btn color="blue" v-on:click="editar(palabra._id)"> <v-icon  color="white">mdi-pencil </v-icon> </v-btn></td>
-                    <!-- <td><v-btn color="red" v-bind="attrs" v-on="on"> <v-icon  color="white">mdi-delete </v-icon> </v-btn> </td> -->
                     <td>
                         <v-row justify="center">
                             <v-dialog
@@ -62,10 +79,11 @@
                     </td>
                 </tr>
             </tbody>
-            {{$data}}
         </template>
     </v-simple-table>
 </v-container>
+</div>
+
 </template>
 <script>
 const axios = require("axios");
